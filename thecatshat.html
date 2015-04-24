@@ -17,17 +17,24 @@
 var cat = document.querySelector("#cat");
 var hat = document.querySelector("#hat");
 
-// function to be animation by using time
+// function to animate by using time
   var angle = 0, lastTime = null;
   function animate(time) {
     if (lastTime != null)
       angle += (time - lastTime) * 0.001;
     lastTime = time;
-    cat.style.top = (Math.sin(angle) * 20) + "px";
+    
+    // sets how the cat image will move along the circle
+    cat.style.top = (Math.sin(angle) * 20) + "px";  
     cat.style.left = (Math.cos(angle) * 200) + "px";
    
+   // adds PI to the angle to create var hangle
+   // hangle will be used to set the hat half a circle ahead
+   // opposite of the cat 
    var hangle = angle + Math.PI;
    
+   // sets how the hat image will move along the circle 
+   // hangle = origional cat angle plus PI
     hat.style.top = (Math.sin(hangle) * 20) + "px";
     hat.style.left = (Math.cos(hangle) * 200) + "px";
     
